@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //3a
+      let text = "My name is: ";
+      //3b
+      let name = "Mark";
+      //3c
+      let concat = text + name;
+      //3d
+      let order = 5 + 3;
+      let orderText = "Total cost: $" + order;
+      //3e
+      let orderTextInter = `Total cost: $${order}`;
+      //3f
+      alert(orderTextInter);
+      //3g
+      let orderCost = (599 + 295) / 100;
+      let orderText3g = "Total cost: $" + orderCost;
+      //3h
+      let orderTextInter2 = `Total cost: $${orderCost}`;
+      //3i
+      alert(orderTextInter2);
+      //3j
+      let multiLine = orderTextInter2 + "\nThank you, come again!";
+      alert(multiLine);
+      //Challenge
+      //3k
+      let challengeCost = (2 * 2095 + 2 * 799) / 100;
+      let challengeShipping = (499 + 499) / 100;
+      let challengeInter = `Items (4): $${challengeCost}`;
+      console.log(challengeInter);
+      //3l
+      let challengeInter2 = `Shiiping & handling: ${challengeShipping}`;
+      console.log(challengeInter2);
+      //3m
+      let challengeTotalBT = challengeCost + challengeShipping;
+      let challengeInter3 = `Total before tax: $${challengeTotalBT}`;
+      console.log(challengeInter3);
+      //3n
+      let challengeEstimatedTax =
+        Math.round(challengeTotalBT * 100 * 0.1) / 100;
+      let challengeInter4 = `Estimated tax (10%): $${challengeEstimatedTax}`;
+      console.log(challengeInter4);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button
+      onclick="
+        RSP('rock', computerChoice())"
+    >
+      Rock
+    </button>
+    <button
+      onclick="
+        RSP('paper', computerChoice())"
+    >
+      Paper
+    </button>
+    <button
+      onclick="
+        RSP('scissors', computerChoice())"
+    >
+      Scissors
+    </button>
+    <button
+      onclick="
+        counter.wins =0;
+        counter.loses = 0;
+        counter.ties = 0;
+        localStorage.removeItem('counter')"
+    >
+      Reset Score
+    </button>
+    <script>
+      let counter = JSON.parse(localStorage.getItem("counter")) || {
+        wins: 0,
+        loses: 0,
+        ties: 0,
+      };
+
+      const choices = ["rock", "paper", "scissors"];
+
+      function computerChoice() {
+        return choices[Math.floor(Math.random() * choices.length)];
+      }
+      console.log(computerChoice());
+      function RSP(player, computer) {
+        let result;
+        if (player == computer) {
+          result = "It's a tie!";
+          counter.ties++;
+        } else if (
+          (player == "rock" && computer == "paper") ||
+          (player == "paper" && computer == "scissors") ||
+          (player == "scissors" && computer == "rock")
+        ) {
+          result = `You lose.`;
+          counter.loses++;
+        } else if (
+          (player == "rock" && computer == "scissors") ||
+          (player == "paper" && computer == "rock") ||
+          (player == "scissors" && computer == "paper")
+        ) {
+          result = `You win.`;
+          counter.wins++;
+        }
+
+        localStorage.setItem("counter", JSON.stringify(counter));
+
+        alert(
+          `You picked ${player}. Computer picked ${computer}. ${result} \nWins: ${counter.wins}, Losses: ${counter.loses}, Ties: ${counter.ties}`
+        );
+      }
+    </script>
+  </body>
+</html>
