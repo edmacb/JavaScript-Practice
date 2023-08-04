@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //8a
+      let amazonListing = {
+        name: "basketball",
+        price: 2095,
+      };
+      console.log(amazonListing.price);
+      //8b
+      let updatedPrice = amazonListing.price + 500;
+      console.log(updatedPrice);
+      //8c
+      amazonListing["delivery-time"] = "3 days";
+      console.log(amazonListing);
+      //8d
+      function comparePrice(product1, product2) {
+        return product1.price < product2.price ? product1.name : product2.name;
+      }
+      const product1 = {
+        name: "shoes",
+        price: 5000,
+      };
+      const product2 = {
+        name: "shorts",
+        price: 1250,
+      };
+      console.log(comparePrice(product1, product2));
+      //8e
+      function isSameProduct(product1, product2) {
+        return product1 == product2 ? true : false;
+      }
+      const product3 = {
+        name: "rings",
+        price: 8000,
+      };
+      const product4 = {
+        name: "rings",
+        price: 8000,
+      };
+      const product5 = {
+        name: "map",
+        price: 1000,
+      };
+      console.log(
+        isSameProduct(JSON.stringify(product3), JSON.stringify(product4))
+      );
+      console.log(
+        isSameProduct(JSON.stringify(product4), JSON.stringify(product5))
+      );
+      //8f
+      let convert = "JavaScript".toLocaleLowerCase();
+      console.log(convert);
+      //8g
+      let repeat = "test";
+      console.log(repeat.repeat(2));
+    </script>
+  </body>
+</html>
