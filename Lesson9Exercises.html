@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>9a</button>
+    <hr />
+    <button class="js-secondButton">9b</button>
+    <hr />
+
+    <button
+      class="js-heads"
+      onclick="changeText('heads')
+    "
+    >
+      heads
+    </button>
+
+    <button
+      class="'js-tails"
+      onclick="changeText('tails')
+    "
+    >
+      tails
+    </button>
+
+    <p class="js-text"></p>
+    <hr />
+
+    <input
+      class="js-input-name"
+      placeholder="Name"
+      onkeydown="keyDownEnter(event)"
+    />
+    <button
+      onclick="appearName()
+    "
+    >
+      Submit
+    </button>
+    <p class="js-name"></p>
+
+    <hr />
+
+    <!--Shipping-->
+    <div>
+      <h2>Amazon Shipping Calculator</h2>
+      <p>Orders under $40 --- Shipping = +$10</p>
+      <p>Order over $40 --- FREE Shipping</p>
+      <input
+        class="cost"
+        type="text"
+        placeholder="Cost of order"
+        onkeydown="keyDownCalc(event)"
+      />
+      <button
+        onclick="
+            calculate()"
+      >
+        Calculate
+      </button>
+      <p class="total"></p>
+    </div>
+
+    <hr />
+
+    <!--9h-->
+    <input class="js-lastText" onkeyup="updateText()" />
+    <p class="js-lastPara"></p>
+    <script>
+      //#region Normal Exercise
+      //9a
+      console.log(document.querySelector("button"));
+      //9b
+      document.querySelector(".js-secondButton").innerText = "9b done";
+      //9c
+      function changeText(option) {
+        document.querySelector(".js-text").innerText = `You chose: ${option}`;
+      }
+      //9d
+      function appearName() {
+        document.querySelector(".js-name").innerText = `You name is: ${
+          document.querySelector(".js-input-name").value
+        }`;
+      }
+      //9e & 9f
+      function keyDownEnter(event) {
+        if (event.key == "Enter") {
+          appearName();
+        }
+      }
+      //#endregion
+      //9g
+      //#region Amazon Shipping
+      function keyDownCalc(event) {
+        if (event.key == "Enter") {
+          calculate();
+        }
+      }
+      function calculate() {
+        let cost = Number(document.querySelector(".cost").value);
+        let newCost = cost * 100;
+        let total;
+        if (newCost < 4000) {
+          total = (newCost + 1000) / 100;
+        } else {
+          total = newCost / 100;
+        }
+        document.querySelector(".total").innerHTML = `$${total}`;
+      }
+      //#endregion
+
+      //9h
+      function updateText() {
+        document.querySelector(".js-lastPara").innerText =
+          document.querySelector(".js-lastText").value;
+      }
+    </script>
+  </body>
+</html>
