@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/styles10Challenge.css" />
+  </head>
+  <body>
+    <!--Shipping-->
+    <div>
+      <h2>Amazon Shipping Calculator</h2>
+      <p>Orders under $40 --- Shipping = +$10</p>
+      <p>Order over $40 --- FREE Shipping</p>
+      <input
+        class="cost cs-cost"
+        type="text"
+        placeholder="Cost of order"
+        onkeydown="
+      if (event.key == 'Enter') {
+        calculate(document.querySelector('.cost').value)
+      }"
+      />
+      <button
+        class="cs-calculate"
+        ;
+        onclick="
+            calculate(document.querySelector('.cost').value)"
+      >
+        Calculate
+      </button>
+      <p class="total"></p>
+      <p class="error"></p>
+    </div>
+    <script>
+      //#region Amazon Shipping
+
+      function calculate(costOfProduct) {
+        let cost = Number(costOfProduct);
+
+        document.querySelector(".total").innerText = "";
+
+        document.querySelector(".error").innerText = "";
+
+        if (cost < 0) {
+          document.querySelector(
+            ".error"
+          ).innerText = `Error: Cost cannot be less than $0.`;
+          return;
+        }
+        if (cost < 40) {
+          cost += 10;
+        }
+        document.querySelector(".total").innerText = `$${cost}`;
+      }
+
+      //#endregion
+    </script>
+  </body>
+</html>

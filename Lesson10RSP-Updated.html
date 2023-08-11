@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/styles10-RSP.css" />
+  </head>
+  <body>
+    <!--RSP-->
+    <div>
+      <h2 class="title">Rock Paper Scissors</h2>
+      <button
+        class="cs-moves"
+        onclick="
+            RSP('rock', computerChoice())"
+      >
+        <img src="images/rock-emoji.png" />
+      </button>
+      <button
+        class="cs-moves"
+        onclick="
+            RSP('paper', computerChoice())"
+      >
+        <img src="images/paper-emoji.png" />
+      </button>
+      <button
+        class="cs-moves"
+        onclick="
+            RSP('scissors', computerChoice())"
+      >
+        <img src="images/scissors-emoji.png" />
+      </button>
+      <br />
+      <p class="winLose"></p>
+      <p class="bothChoices"></p>
+      <p class="counterScore"></p>
+
+      <button
+        class="cs-reset"
+        onclick="
+            counter.wins =0;
+            counter.loses = 0;
+            counter.ties = 0;
+            localStorage.removeItem('counter')
+            showScore()"
+      >
+        Reset Score
+      </button>
+    </div>
+    <script src="scripts/Lesson10RSP.js"></script>
+  </body>
+</html>

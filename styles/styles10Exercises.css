@@ -1,0 +1,69 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding: 50px;
+}
+hr {
+  margin: 25px;
+}
+button {
+  cursor: pointer;
+  border: none;
+}
+/*10a*/
+.cs-addToCart {
+  background-color: rgb(255, 216, 20);
+  font-size: 20px;
+  padding: 10px 50px;
+  border-radius: 50px;
+}
+/*10b*/
+.cs-uber {
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+/*10c*/
+.cs-uberRequest {
+  background-color: black;
+  color: white;
+  margin-right: 20px;
+}
+.cs-uberSchedule {
+  background-color: rgb(230, 230, 230);
+}
+/*10d*/
+.cs-gaming {
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: rgb(230, 230, 230);
+}
+.cs-gamingToggleOn {
+  background-color: black;
+  color: white;
+}
+/*10e*/
+.cs-exercise10ef {
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: rgb(230, 230, 230);
+  margin: 5px 15px;
+}
+.cs-exercise10efToggle {
+  background-color: black;
+  color: white;
+}
+/*CHALLENGE 10G*/
+.challenge10G {
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: rgb(230, 230, 230);
+  margin: 5px 15px;
+}
+.challenge10GToggle {
+  background-color: black;
+  color: white;
+}

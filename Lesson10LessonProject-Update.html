@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/styles10.css" />
+  </head>
+  <body>
+    <!--Suscribe-->
+    <div>
+      <h2>Youtube Subscribe Button</h2>
+      <button
+        class="subscribe cs-subscribe"
+        onclick="
+            changeText();"
+      >
+        Subscribe
+      </button>
+    </div>
+    <hr />
+    <!--RSP-->
+    <div>
+      <h2>Rock Paper Scissores</h2>
+      <button
+        onclick="
+            RSP('rock', computerChoice())"
+      >
+        Rock
+      </button>
+      <button
+        onclick="
+            RSP('paper', computerChoice())"
+      >
+        Paper
+      </button>
+      <button
+        onclick="
+            RSP('scissors', computerChoice())"
+      >
+        Scissors
+      </button>
+      <br />
+      <p class="winLose"></p>
+      <p class="bothChoices"></p>
+      <p class="counterScore"></p>
+
+      <button
+        onclick="
+            counter.wins =0;
+            counter.loses = 0;
+            counter.ties = 0;
+            localStorage.removeItem('counter')
+            showScore()"
+      >
+        Reset Score
+      </button>
+    </div>
+    <hr />
+    <!--Shipping-->
+    <div>
+      <h2>Amazon Shipping Calculator</h2>
+      <p>Orders under $40 --- Shipping = +$10</p>
+      <p>Order over $40 --- FREE Shipping</p>
+      <input
+        class="cost cs-cost"
+        type="text"
+        placeholder="Cost of order"
+        onkeydown="
+      if (event.key == 'Enter') {
+        calculate(document.querySelector('.cost').value)
+      }"
+      />
+      <button
+        class="cs-calculate"
+        ;
+        onclick="
+            calculate(document.querySelector('.cost').value)"
+      >
+        Calculate
+      </button>
+      <p class="total"></p>
+    </div>
+    <hr />
+    <script>
+      //#region Subscribe
+      function changeText() {
+        const subscribeButton = document.querySelector(".subscribe");
+
+        if (subscribeButton.innerText == "Subscribe") {
+          subscribeButton.innerText = "Subscribed";
+          subscribeButton.classList.add("cs-subscribed");
+        } else {
+          subscribeButton.innerText = "Subscribe";
+          subscribeButton.classList.remove("cs-subscribed");
+        }
+        // subscribeButton.classList.toggle("cs-subscribed");
+      }
+
+      //#endregion
+
+      //#region RSP
+      let counter = JSON.parse(localStorage.getItem("counter")) || {
+        wins: 0,
+        loses: 0,
+        ties: 0,
+      };
+
+      const choices = ["rock", "paper", "scissors"];
+
+      function computerChoice() {
+        return choices[Math.floor(Math.random() * choices.length)];
+      }
+
+      function showScore() {
+        document.querySelector(
+          ".counterScore"
+        ).innerHTML = `Wins: ${counter.wins}, Losses: ${counter.loses}, Ties: ${counter.ties}`;
+      }
+
+      function RSP(player, computer) {
+        let result;
+        if (player == computer) {
+          result = "It's a tie!";
+          counter.ties++;
+        } else if (
+          (player == "rock" && computer == "paper") ||
+          (player == "paper" && computer == "scissors") ||
+          (player == "scissors" && computer == "rock")
+        ) {
+          result = `You lose.`;
+          counter.loses++;
+        } else if (
+          (player == "rock" && computer == "scissors") ||
+          (player == "paper" && computer == "rock") ||
+          (player == "scissors" && computer == "paper")
+        ) {
+          result = `You win.`;
+          counter.wins++;
+        }
+
+        localStorage.setItem("counter", JSON.stringify(counter));
+
+        document.querySelector(".winLose").innerHTML = result;
+
+        document.querySelector(
+          ".bothChoices"
+        ).innerHTML = `You chose ${player} while Computer chose ${computer}`;
+
+        showScore();
+      }
+      //#endregion
+
+      //#region Amazon Shipping
+      function calculate(costi) {
+        let cost = Number(costi);
+        let total;
+        if (cost < 40) {
+          total = cost + 10;
+        } else {
+          total = cost;
+        }
+        document.querySelector(".total").innerHTML = `$${total}`;
+      }
+      //#endregion
+    </script>
+  </body>
+</html>
