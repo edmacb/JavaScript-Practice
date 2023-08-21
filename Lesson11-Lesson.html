@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>To Do List</p>
+    <input class="toDoListInput" type="text" placeholder="Add an item" />
+    <button onclick="showList()">Add</button>
+    <p class="toDoList"></p>
+
+    <hr />
+    <p>To Do List V2</p>
+    <input class="toDoListInputV2" type="text" placeholder="Add an item" />
+    <button onclick="showListV2()">Add</button>
+    <p class="toDoListV2"></p>
+    <script>
+      //#region
+      let list = [];
+      let toDoListInput = document.querySelector(".toDoListInput");
+      let toDoList = document.querySelector(".toDoList");
+
+      function showList() {
+        list.push(toDoListInput.value);
+        toDoListInput.value = "";
+        console.log(list);
+      }
+      //#endregion
+
+      let listV2 = [];
+      let toDoListInputV2 = document.querySelector(".toDoListInputV2");
+      let toDoListV2 = document.querySelector(".toDoListV2");
+
+      function showListV2() {
+        listV2.push(toDoListInputV2.value);
+        toDoListInputV2.value = "";
+        repeater();
+      }
+      function repeater() {
+        let finalList = "";
+        for (let i = 0; i < listV2.length; i++) {
+          let item = `<p>${listV2[i]}</p>`;
+          finalList += item;
+        }
+        toDoListV2.innerHTML = finalList;
+      }
+    </script>
+  </body>
+</html>
