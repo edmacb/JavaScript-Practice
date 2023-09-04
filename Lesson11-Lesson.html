@@ -16,6 +16,12 @@
     <input class="toDoListInputV2" type="text" placeholder="Add an item" />
     <button onclick="showListV2()">Add</button>
     <p class="toDoListV2"></p>
+
+    <hr />
+    <p>To Do List V3</p>
+    <input class="toDoListInputV3" type="text" placeholder="Add an item" />
+    <button onclick="showListV3()">Add</button>
+    <div class="toDoListV3"></div>
     <script>
       //#region
       let list = [];
@@ -28,7 +34,7 @@
         console.log(list);
       }
       //#endregion
-
+      //#region V2
       let listV2 = [];
       let toDoListInputV2 = document.querySelector(".toDoListInputV2");
       let toDoListV2 = document.querySelector(".toDoListV2");
@@ -46,6 +52,18 @@
         }
         toDoListV2.innerHTML = finalList;
       }
+      //#endregion V2
+
+      //#region
+      let listV3 = [];
+      let toDoListInputV3 = document.querySelector(".toDoListInputV3");
+      let toDoListV3 = document.querySelector(".toDoListV3");
+      function showListV3() {
+        listV3.push(toDoListInputV3.value);
+        toDoListInputV3.value = "";
+        for (let i = 0; i < listV3.length; i++) {}
+      }
+      //#endregion
     </script>
   </body>
 </html>

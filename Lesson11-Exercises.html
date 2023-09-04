@@ -126,6 +126,49 @@
       console.log(countPositive([1, -3, 5]));
       console.log(countPositive([-2, 3, -5, 7, 10]));
       //#endregion
+
+      //#region CHALLENGE 11L 11M
+      function minMax(nums) {
+        let minMax = {
+          min: 0,
+          max: 0,
+        };
+        for (let i = 0; i < nums.length; i++) {
+          if (minMax.min > nums[i]) {
+            minMax.min = nums[i];
+          }
+        }
+        for (let i = 0; i < nums.length; i++) {
+          if (minMax.max < nums[i]) {
+            minMax.max = nums[i];
+          }
+        }
+        return minMax;
+      }
+      console.log(minMax([1, -3, 5]));
+      console.log(minMax([-2, 3, -5, 7, 10]));
+      console.log(minMax([]));
+      console.log(minMax([3]));
+      //#endregion
+
+      //#region CHALLENGE 11N
+
+      function countWords(words) {
+        let countWordsItems = {};
+
+        for (let i = 0; i < words.length; i++) {
+          let item = words[i];
+
+          if (countWordsItems.hasOwnProperty(item)) {
+            countWordsItems[item] += 1;
+          } else {
+            countWordsItems[item] = 1;
+          }
+        }
+        return countWordsItems;
+      }
+      console.log(countWords(["apple", "grape", "apple", "apple"]));
+      //#endregion
     </script>
   </body>
 </html>
